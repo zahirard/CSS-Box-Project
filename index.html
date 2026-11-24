@@ -1,32 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Box: Padding, Margin, and Border</title>
-
-  <style>
-    .box200 {
-      width: 250px;
-      height: 200px;
-      color: rgb(17, 183, 238);
-      padding: 40px 15px 0px 15px;
-      margin: 25px 10px;
-      border-width: 5px 5px;
-      border-style:dotted dotted;
-      border-color: red rgb(229, 13, 13) rgb(236, 13, 13) rgb(227, 13, 13);
-    }
-  </style>
-</head>
-
-<body>
-
-  <p>This is before the box.</p>
-
-  <div class="box200">
-    This is a 200 x 200 pixel box with a border.
-  </div>
-
-  <p>This is after the box.</p>
-
-</body>
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Portail du coll&egrave;ge | Atelier TP7</title>
+  <meta content="Portail d&eacute;monstratif accessible : programmes, actualit&eacute;s et formulaire d'int&eacute;r&ecirc;t." name="description"/>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- TP7 : les attributs sémantiques et la structure visuelle sont inspectables avec DevTools. -->
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+   <div class="brand">
+    COLL&Egrave;GE &middot; PORTAIL
+   </div>
+   <nav aria-label="Navigation principale">
+    <a href="#programmes">Programmes</a>
+    <a href="#actualites">Actualit&eacute;s</a>
+    <a href="#contact">Contact</a>
+   </nav>
+  </header>
+  <main id="contenu">
+   <section aria-labelledby="accueil" class="intro">
+    <p class="eyebrow">Session 2026</p>
+    <h1 id="accueil">Explorer les formations technologiques</h1>
+    <p>Consultez les parcours et transmettez une demande de renseignements fictive.</p>
+   </section>
+   <section aria-labelledby="programmes-titre" id="programmes">
+    <h2 id="programmes-titre">Programmes</h2>
+    <div class="cards">
+     <article>
+      <h3>Programmation Web</h3>
+      <p>Interfaces, HTML5 et CSS moderne.</p>
+     </article>
+     <article>
+      <h3>R&eacute;seaux</h3>
+      <p>Infrastructure, protocoles et diagnostic.</p>
+     </article>
+    </div>
+   </section>
+   <section aria-labelledby="actualites-titre" id="actualites">
+    <h2 id="actualites-titre">Actualit&eacute;s</h2>
+    <article>
+     <h3>Laboratoire ouvert</h3>
+     <p>Une nouvelle plage de pratique est propos&eacute;e aux &eacute;tudiants.</p>
+    </article>
+   </section>
+   <section aria-labelledby="contact-titre" id="contact">
+    <h2 id="contact-titre">Demande d'information</h2>
+    <!-- GET pour démonstration locale seulement : ne jamais envoyer de données sensibles dans l'URL. -->
+    <form action="" method="get">
+     <label for="nom">Nom de test</label>
+     <input id="nom" maxlength="40" minlength="3" name="nom" required=""/>
+     <label for="email">Courriel fictif</label>
+     <input id="email" name="email" required="" type="email"/>
+     <fieldset>
+      <legend>Type de formation</legend>
+      <label>
+       <input name="mode" required="" type="radio" value="jour"/>Jour</label>
+      <label>
+       <input name="mode" type="radio" value="soir"/>Soir</label>
+     </fieldset>
+     <label for="programme">Programme</label>
+     <select id="programme" name="programme">
+      <option value="web">Web</option>
+      <option value="reseaux">R&eacute;seaux</option>
+     </select>
+     <label for="message">Question</label>
+     <textarea id="message" minlength="12" name="message" required="" rows="4"></textarea>
+     <button type="submit">Envoyer la demande de test</button>
+    </form>
+   </section>
+  </main>
+  <footer>Portail p&eacute;dagogique &middot; D&eacute;monstration locale</footer>
+ </body>
 </html>
